@@ -11,6 +11,8 @@
   - [I get a black screen when launching Desktop](#i-get-a-black-screen-when-launching-desktop)
   - [Failed to open CA file after an update](#failed-to-open-ca-file-after-an-update)
   - [Authentication errors due to modified registry entries](#authentication-errors-due-to-modified-registry-entries)
+- [Linux](#linux)
+   - [I get a white screen when launching Desktop](#i-get-a-white-screen-when-launching-desktop)
 
 # Known Issues
 
@@ -202,3 +204,19 @@ If either the user or an application has modified the `Command Processor` regist
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor\`
 
 Check to see if there is an `Autorun` value in either of those location. If there is, deleting that value should resolve the `Authentication failed` error.
+
+### "Not enough resources" error when signing in
+
+Related issue: [#15217](https://github.com/desktop/desktop/issues/15217)
+
+If you see an error that says "Not enough resources are available to process this command" when signing in to GitHub Desktop, it's likely that you have too many credentials stored in Windows Credentials Manager.
+
+**Workaround:** open the Credential Manager application, click on Windows Credentials and go through the list to see if there are some you can delete.
+
+## Linux
+
+### I get a white screen when launching Desktop
+
+Electron enables hardware accelerated graphics by default, but some graphics cards have issues with hardware acceleration which means the application will launch successfully but it will be a white screen. If you are running GitHub Desktop within virtualization software like Parallels Desktop, hardware accelerated graphics may not be available.
+
+**Workaround:** if you set the `GITHUB_DESKTOP_DISABLE_HARDWARE_ACCELERATION` environment variable to any value and launch Desktop again it will disable hardware acceleration on launch, so the application is usable.
