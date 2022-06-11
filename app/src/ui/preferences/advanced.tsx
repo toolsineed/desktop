@@ -200,6 +200,11 @@ export class Advanced extends React.Component<
   }
 
   private renderNotificationsSettings() {
+    if (__LINUX__) {
+      // notifications not currently supported
+      return null
+    }
+
     if (!enableHighSignalNotifications()) {
       return null
     }
