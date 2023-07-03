@@ -4,7 +4,7 @@ import { git } from './core'
 import { spawnAndComplete } from './spawn'
 
 import { Repository } from '../../models/repository'
-import { GitError } from 'dugite'
+import { GitError } from '@shiftkey/dugite'
 import { enableMultiCommitDiffs } from '../feature-flag'
 
 /**

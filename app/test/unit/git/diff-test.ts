@@ -30,7 +30,7 @@ import {
 } from '../../../src/lib/git'
 import { getStatusOrThrow } from '../../helpers/status'
 
-import { GitProcess } from 'dugite'
+import { GitProcess } from '@shiftkey/dugite'
 import { makeCommit, switchTo } from '../../helpers/repository-scaffolding'
 
 async function getTextDiff(
