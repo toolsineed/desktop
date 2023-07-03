@@ -1,5 +1,5 @@
-import { GitProcess } from 'dugite'
-import { IGitSpawnExecutionOptions } from 'dugite/build/lib/git-process'
+import { GitProcess } from '@shiftkey/dugite'
+import { IGitSpawnExecutionOptions } from '@shiftkey/dugite/build/lib/git-process'
 import * as GitPerf from '../../ui/lib/git-perf'
 import { isErrnoException } from '../errno-exception'
 import { withTrampolineEnv } from '../trampoline/trampoline-environment'
