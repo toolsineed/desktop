@@ -142,7 +142,7 @@ export function supportsSystemThemeChanges(): boolean {
     return isWindows10And1809Preview17666OrLater()
   }
 
-  return false
+  return __LINUX__
 }
 
 function isDarkModeEnabled(): Promise<boolean> {
