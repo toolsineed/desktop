@@ -259,9 +259,9 @@ jobs:
           name: GitHub Desktop for Linux ${{ env.RELEASE_TAG_WITHOUT_PREFIX }}
           body_path: script/release_notes.txt
           files: |
-            artifacts/*.AppImage
-            artifacts/*.deb
-            artifacts/*.rpm
+            artifacts/**/*.AppImage
+            artifacts/**/*.deb
+            artifacts/**/*.rpm
           draft: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
