@@ -13,10 +13,3 @@ linux:
   target:
     - AppImage
   maintainer: 'GitHub, Inc <opensource+desktop@github.com>'
-rpm:
-  depends:
-    # dugite-native dependencies
-    - libcurl
-    # keytar dependencies
-    - libsecret
-    - gnome-keyring
