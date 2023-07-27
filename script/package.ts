@@ -1,7 +1,8 @@
 /* eslint-disable no-sync */
 
 import * as cp from 'child_process'
-import { createReadStream } from 'fs'
+import { createReadStream, chmodSync } from 'fs'
+import { pathExistsSync } from 'fs-extra'
 import { writeFile } from 'fs/promises'
 import * as path from 'path'
 import * as electronInstaller from 'electron-winstaller'
@@ -196,11 +197,11 @@ function generateChecksums() {
 
 function packageLinux() {
   const helperPath = path.join(getDistPath(), 'chrome-sandbox')
-  const exists = fs.pathExistsSync(helperPath)
+  const exists = pathExistsSync(helperPath)
 
   if (exists) {
     console.log('Updating file mode for chrome-sandbox…')
-    fs.chmodSync(helperPath, 0o4755)
+    chmodSync(helperPath, 0o4755)
   }
 
   const electronBuilder = path.resolve(
