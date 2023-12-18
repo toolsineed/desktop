@@ -2472,8 +2472,14 @@ export class Dispatcher {
    * Set the title bar style for the application
    */
   public async setTitleBarStyle(titleBarStyle: TitleBarStyle) {
+    const existingState = this.appStore.getState()
+    const { titleBarStyle: existingTitleBarStyle } = existingState
+
     await this.appStore._setTitleBarStyle(titleBarStyle)
-    this.showPopup({ type: PopupType.ConfirmRestart })
+
+    if (titleBarStyle !== existingTitleBarStyle) {
+      this.showPopup({ type: PopupType.ConfirmRestart })
+    }
   }
 
   /**
